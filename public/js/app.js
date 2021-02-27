@@ -1922,14 +1922,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: [],
   data: function data() {
-    return {};
+    return {
+      people: []
+    };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.getPeople();
+  },
   watch: {},
-  methods: {}
+  methods: {
+    getPeople: function getPeople() {
+      var _this = this;
+
+      axios.post("/getPeople").then(function (res) {
+        _this.people = res.data.records;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -19465,7 +19516,7 @@ var render = function() {
                   "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2",
                 attrs: { for: "photo" }
               },
-              [_vm._v("\n            Photo\n          ")]
+              [_vm._v("\n                        Photo\n                    ")]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "mt-1" }, [
@@ -19505,7 +19556,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("p", { staticClass: "text-xs text-gray-500" }, [
                       _vm._v(
-                        "\n                  PNG, JPG, GIF up to 10MB\n                "
+                        "\n                                    PNG, JPG, GIF up to 10MB\n                                "
                       )
                     ])
                   ])
@@ -19521,12 +19572,44 @@ var render = function() {
                 "inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
               attrs: { type: "button" }
             },
-            [_vm._v("\n          Submit\n        ")]
+            [_vm._v("\n                    Submit\n                ")]
           )
         ])
       ]),
       _vm._v(" "),
-      _vm._m(3)
+      _c("div", [
+        _c(
+          "ul",
+          { staticClass: "divide-y divide-gray-200" },
+          _vm._l(_vm.people, function(person) {
+            return _c("li", { key: person.id, staticClass: "py-4 flex" }, [
+              _c("img", {
+                staticClass: "h-10 w-10 rounded-full",
+                attrs: { src: person.fields.Photo[0].url, alt: "" }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "ml-3" }, [
+                _c("p", { staticClass: "text-sm font-medium text-gray-900" }, [
+                  _vm._v(
+                    "\n                            " +
+                      _vm._s(person.fields.Name) +
+                      "\n                        "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-sm text-gray-500" }, [
+                  _vm._v(
+                    "\n                            " +
+                      _vm._s(person.fields.Email) +
+                      "\n                        "
+                  )
+                ])
+              ])
+            ])
+          }),
+          0
+        )
+      ])
     ])
   ])
 }
@@ -19610,77 +19693,6 @@ var staticRenderFns = [
       ),
       _vm._v(" "),
       _c("p", { staticClass: "pl-1" }, [_vm._v("or drag and drop")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("ul", { staticClass: "divide-y divide-gray-200" }, [
-        _c("li", { staticClass: "py-4 flex" }, [
-          _c("img", {
-            staticClass: "h-10 w-10 rounded-full",
-            attrs: {
-              src:
-                "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-              alt: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "ml-3" }, [
-            _c("p", { staticClass: "text-sm font-medium text-gray-900" }, [
-              _vm._v("Calvin Hawkins")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-sm text-gray-500" }, [
-              _vm._v("calvin.hawkins@example.com")
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "py-4 flex" }, [
-          _c("img", {
-            staticClass: "h-10 w-10 rounded-full",
-            attrs: {
-              src:
-                "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-              alt: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "ml-3" }, [
-            _c("p", { staticClass: "text-sm font-medium text-gray-900" }, [
-              _vm._v("Kristen Ramos")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-sm text-gray-500" }, [
-              _vm._v("kristen.ramos@example.com")
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "py-4 flex" }, [
-          _c("img", {
-            staticClass: "h-10 w-10 rounded-full",
-            attrs: {
-              src:
-                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-              alt: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "ml-3" }, [
-            _c("p", { staticClass: "text-sm font-medium text-gray-900" }, [
-              _vm._v("Ted Fox")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-sm text-gray-500" }, [
-              _vm._v("ted.fox@example.com")
-            ])
-          ])
-        ])
-      ])
     ])
   }
 ]
