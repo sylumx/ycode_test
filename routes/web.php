@@ -16,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\PeopleController::class, 'index']);
 
-Route::post('getPeople', [PeopleController::class, 'getPeople']);
+Route::get('getPeople', [PeopleController::class, 'getPeople']);
+
+Route::post('/submit/formdata', [PeopleController::class, 'addFormData']);
